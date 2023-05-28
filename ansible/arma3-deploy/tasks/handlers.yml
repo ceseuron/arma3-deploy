@@ -1,0 +1,9 @@
+- name: start_server
+  become: true
+  become_user: "{{ arma3_user }}"
+  command: "bash /home/{{ arma3_user }}/arma3server start"
+
+- name: restart_server
+  become: true
+  become_user: "{{ arma3_user }}"
+  command: "bash /home/{{ arma3_user }}/arma3server restart"

@@ -4,6 +4,14 @@
 
 - name: Install Arma3 Server
   include_tasks: server_install.yml
+  tags:
+    - install
+  handlers:
+    - import_tasks: handlers.yml
 
 - name: Deploy base Arma3 configuration
   include_tasks: server_config.yml
+  tags:
+    - config
+  handlers:
+    - import_tasks: handlers.yml

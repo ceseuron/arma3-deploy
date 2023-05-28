@@ -8,6 +8,7 @@
     group: "{{ arma3_group }}"
     owner: "{{ arma3_user }}"
     mode: '0755'
+  notifies: restart_server
 
 - name: Create Arma3 Network Configuration File from template..
   template:
@@ -16,3 +17,4 @@
     group: "{{ arma3_group }}"
     owner: "{{ arma3_user }}"
     mode: '0755'
+  notifies: restart_server
