@@ -23,6 +23,14 @@
   become_user: "{{ arma3_user }}"
   command: "/home/{{ arma3_user }}/linuxgsm.sh"
 
+- name: Create LGSM config directory.
+  file:
+    path: "/home/{{ arma3_user }}/lgsm/config-lgsm/arma3server"
+    group: "{{ arma3_group }}"
+    owner: "{{ arma3_user }}"
+    mode: '0755'
+    state: directory
+
 - name: Create LGSM configuration file from template.
   template:
     src: "./arma3-deploy/templates/lgsm_common.cfg.j2"
