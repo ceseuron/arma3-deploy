@@ -9,3 +9,13 @@
     comment: Arma3 server user.
     group: "{{ arma3_group }}"
     state: present
+
+- name: Donwload LinuxGSM script for Arma3 deployment.
+  become: true
+  become_user: "{{ arma3_user }}"
+  get_url:
+       url: https://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz
+       dest: /home/"{{ arma3_user }}"
+       mode: +x
+       group: "{{ arma3_group }}"
+       owner: "{{ arma3_user }}"
