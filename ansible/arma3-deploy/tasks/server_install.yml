@@ -25,7 +25,7 @@
 
 - name: Create LGSM configuration file from template.
   template:
-    src: "./roles/arma3-deploy/templates/lgsm_common.cfg.j2"
+    src: "./arma3-deploy/templates/lgsm_common.cfg.j2"
     dest: "/home/{{ arma3_user }}/lgsm/config-lgsm/arma3server/common.cfg"
     group: "{{ arma3_group }}"
     owner: "{{ arma3_user }}"
