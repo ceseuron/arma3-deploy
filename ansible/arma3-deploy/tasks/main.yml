@@ -1,20 +1,17 @@
 - name: Prepare system - Ubuntu/Debian.
-  tasks:
-  - include_tasks: prep_ubuntu.yml
+  include_tasks: prep_ubuntu.yml
   when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Arma3 Server
-  tasks:
-  - include_tasks: server_install.yml
+  include_tasks: server_install.yml
   tags:
     - install
   handlers:
-    - import_tasks: handlers.yml
+    - include: ./arma3-deploy/handlers/main.yml
 
 - name: Deploy base Arma3 configuration
-  tasks:
-  - include_tasks: server_config.yml
+  include_tasks: server_config.yml
   tags:
     - config
   handlers:
-    - import_tasks: handlers.yml
+    - include: ./arma3-deploy/handlers/main.yml
