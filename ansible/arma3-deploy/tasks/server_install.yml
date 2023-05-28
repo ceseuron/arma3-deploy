@@ -22,10 +22,18 @@
        group: "{{ arma3_group }}"
        owner: "{{ arma3_user }}"
 
+- name: Check if arma3server script is already installed.
+  become: true
+  become_user: "{{ arma3_user }}"
+  stat:
+    path: "/home/{{ arma3_user }}/arma3server"
+  register: arma3server_script
+
 - name: Run LinuxGSM script.
   become: true
   become_user: "{{ arma3_user }}"
   command: "bash /home/{{ arma3_user }}/linuxgsm.sh arma3server"
+  when: not arma3server_script.stat.exists
 
 - name: Create LGSM config directory.
   file:
