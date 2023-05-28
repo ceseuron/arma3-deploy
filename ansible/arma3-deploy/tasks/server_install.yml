@@ -46,4 +46,4 @@
 - name: Run Arma3 Installation.
   become: true
   become_user: "{{ arma3_user }}"
-  command: "bash /home/{{ arma3_user }}/arma3server install"
+  command: "bash /home/{{ arma3_user }}/arma3server auto-install"
