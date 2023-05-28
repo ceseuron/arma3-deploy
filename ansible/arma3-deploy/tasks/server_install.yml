@@ -22,7 +22,7 @@
 - name: Run LinuxGSM script.
   become: true
   become_user: "{{ arma3_user }}"
-  shell: "/home/{{ arma3_user }}/linuxgsm.sh"
+  command: "bash /home/{{ arma3_user }}/linuxgsm.sh"
     arguments: arma3server
 
 - name: Create LGSM config directory.
