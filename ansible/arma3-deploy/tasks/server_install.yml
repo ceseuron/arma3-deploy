@@ -42,9 +42,16 @@
     group: "{{ arma3_group }}"
     owner: "{{ arma3_user }}"
     mode: '0755'
-  
+
+- name: Check if server is already installed.
+  become: true
+  become_user: "{{ arma3_user }}"
+  stat:
+    path: "/home/{{ arma3_user }}/serverfiles/arma3server_x64"
+  register: server_binary
+
 - name: Run Arma3 Installation.
   become: true
   become_user: "{{ arma3_user }}"
   command: "bash /home/{{ arma3_user }}/arma3server auto-install"
-  
+  when: not server_binary.stat.exists
