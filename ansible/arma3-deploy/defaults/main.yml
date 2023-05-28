@@ -3,4 +3,6 @@ arma3_group: arma3
 
 arma3_servername: "Dead Man's Hand - Apocalypse Now"
 arma3_maxplayers: 32
-arma3_headless_ips: "{ 127.0.0.1 }"
+arma3_headless_ips: [
+  "127.0.0.1"
+]
