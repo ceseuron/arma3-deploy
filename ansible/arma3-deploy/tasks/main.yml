@@ -6,12 +6,8 @@
   include_tasks: server_install.yml
   tags:
     - install
-  handlers:
-    - include: ./arma3-deploy/handlers/main.yml
 
 - name: Deploy base Arma3 configuration
   include_tasks: server_config.yml
   tags:
     - config
-  handlers:
-    - include: ./arma3-deploy/handlers/main.yml
