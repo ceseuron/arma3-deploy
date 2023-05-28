@@ -1,3 +1,6 @@
+- name: Include secret variables.
+  include_vars: ./arma3-deploy/vars/secrets.yml
+
 - name: Set up Arma3 group.
   group:
     name: "{{ arma3_group }}"
@@ -39,3 +42,8 @@
     group: "{{ arma3_group }}"
     owner: "{{ arma3_user }}"
     mode: '0755'
+  
+- name: Run Arma3 Installation.
+  become: true
+  become_user: "{{ arma3_user }}"
+  command: "bash /home/{{ arma3_user }}/arma3server install"

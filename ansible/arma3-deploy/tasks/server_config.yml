@@ -1,0 +1,18 @@
+- name: Include secret variables.
+  include_vars: ./arma3-deploy/vars/secrets.yml
+
+- name: Create Arma3 Server Configuration File from template..
+  template:
+    src: "./arma3-deploy/templates/arma3_server.cfg.j2"
+    dest: "/home/{{ arma3_user }}/lgsm/config-default/config-game/server.cfg"
+    group: "{{ arma3_group }}"
+    owner: "{{ arma3_user }}"
+    mode: '0755'
+
+- name: Create Arma3 Network Configuration File from template..
+  template:
+    src: "./arma3-deploy/templates/arma3_network.cfg.j2"
+    dest: "/home/{{ arma3_user }}/lgsm/config-default/config-game/network.cfg"
+    group: "{{ arma3_group }}"
+    owner: "{{ arma3_user }}"
+    mode: '0755'
