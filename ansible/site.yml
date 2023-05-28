@@ -1,0 +1,5 @@
+- hosts: localhost
+  roles:
+  - arma3-deploy
+  tags:
+  - arma3

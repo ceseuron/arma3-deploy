@@ -1,0 +1,11 @@
+- name: Set up Arma3 group.
+  group:
+    name: "{{ arma3_group }}"
+    state: present
+
+- name: Set up Arma3 user.
+  user:
+    name: "{{ arma3_user }}"
+    comment: Arma3 server user.
+    group: "{{ arma3_group }}"
+    state: present
