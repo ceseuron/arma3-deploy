@@ -8,6 +8,7 @@
     name: "{{ arma3_user }}"
     comment: Arma3 server user.
     group: "{{ arma3_group }}"
+    shell: /bin/bash
     state: present
 
 - name: Download LinuxGSM script for Arma3 deployment.
@@ -21,7 +22,8 @@
 - name: Run LinuxGSM script.
   become: true
   become_user: "{{ arma3_user }}"
-  command: "/home/{{ arma3_user }}/linuxgsm.sh arma3server"
+  command: "/home/{{ arma3_user }}/linuxgsm.sh"
+    arguments: arma3server
 
 - name: Create LGSM config directory.
   file:
